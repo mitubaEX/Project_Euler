@@ -1,3 +1,4 @@
+-- 素因数分解
 factors :: Integer -> [Integer]
 factors n = [x | x <- [1..n], n `mod` x == 0]
 

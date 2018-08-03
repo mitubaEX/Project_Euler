@@ -1,3 +1,4 @@
+-- フィボナッチ
 import Data.Array
 
 main = do
