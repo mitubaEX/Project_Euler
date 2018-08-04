@@ -1,11 +1,7 @@
-
-check :: Integer -> Integer
-check a = loop a
-  where
-    loop a = if isDiv a then a else loop $ a + 20
-
-isDiv :: Integer -> Bool
-isDiv a = all (\x -> a `mod` x == 0) [1..20]
+-- 最大公約数
+check :: [Integer] -> Integer
+check [] = 1
+check (x:xs) = lcm (x) (check xs)
 
 main = do
-  print $ check 20
+  print $ check [1..20]
