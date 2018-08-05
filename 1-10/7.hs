@@ -1,7 +1,3 @@
-primes :: [Integer]
-primes = sieve (2 : [3, 5..])
-  where
-    sieve (p:xs) = p : sieve [x|x <- xs, x `mod` p > 0]
-
+import Data.Numbers.Primes
 main = do
-  print $ take 10001 primes !! 10000
+  print . last . take 10001 $ wheelSieve 1
