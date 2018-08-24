@@ -1,7 +1,5 @@
 -- 最大公約数
 check :: [Integer] -> Integer
-check [] = 1
-check (x:xs) = lcm (x) (check xs)
+check = foldr lcm 1
 
-main = do
-  print $ check [1..20]
+main = print $ check [1..20]

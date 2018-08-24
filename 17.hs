@@ -11,6 +11,6 @@ main = do
   let hundredAndNumbers = (+) <$> [length hundred] <*> fmap length numbersWithoutTen
   let hundredAndNumbersAddAnd = (+) <$> [length "hundredand"] <*> fmap length numbersWithoutTen
 
-  let twoDigitSum = ((fmap length numbers) ++ (fmap length teen) ++ (fmap length ty) ++ (tyAndNumbers))
+  let twoDigitSum = (fmap length numbers ++ fmap length teen ++ fmap length ty ++ tyAndNumbers)
 
-  print $ sum twoDigitSum + (sum $ (+) <$> twoDigitSum <*> hundredAndNumbersAddAnd) + sum hundredAndNumbers + length "onethousand"
+  print $ sum twoDigitSum + sum ((+) <$> twoDigitSum <*> hundredAndNumbersAddAnd) + sum hundredAndNumbers + length "onethousand"

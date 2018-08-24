@@ -3,14 +3,14 @@ import Data.List.Split
 import Data.List
 
 ordAlphabet :: Char -> Int
-ordAlphabet a = (ord a) - 64
+ordAlphabet a = ord a - 64
 
-check :: [Char] -> Int
+check :: String -> Int
 check [] = 0
-check (x:[]) = 0
-check (x:xs) = (ordAlphabet x) + (check xs)
+check [x] = 0
+check (x:xs) = ordAlphabet x + check xs
 
 main = do
   content <- getContents
-  let listWithIndex = zip [1..] $ fmap check $ sort $ fmap tail $ splitOn "," content :: [(Int, Int)]
-  print $ sum $ fmap (\(x,y) -> x * y) listWithIndex
+  let listWithIndex = zip [1..] $ check <$> sort (tail <$> splitOn "," content) :: [(Int, Int)]
+  print $ sum $ fmap (uncurry (*)) listWithIndex

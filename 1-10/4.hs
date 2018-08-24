@@ -2,7 +2,7 @@
 -- 数値反転 reverse int
 
 reverseInt :: Integer -> Integer
-reverseInt x = read . reverse . show $ x
+reverseInt = read . reverse . show
 
 check :: Integer -> Integer
 check a = if a == reverseInt a then a else 0

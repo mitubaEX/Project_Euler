@@ -1,7 +1,6 @@
 -- 40C20
 
 comb :: Integer -> Integer -> Integer
-comb a b = foldl (*) 1 [(b + 1)..a] `div` foldl (*) 1 [1..b]
+comb a b = product [(b + 1)..a] `div` product [1..b]
 
-main = do
-  print $ comb 40 20
+main = print $ comb 40 20

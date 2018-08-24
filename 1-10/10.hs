@@ -1,3 +1,2 @@
 import Data.Numbers.Primes
-main = do
-  print $ sum $ takeWhile (\x -> x < 2000000) $ wheelSieve 1
+main = print $ sum $ takeWhile (< 2000000) $ wheelSieve 1

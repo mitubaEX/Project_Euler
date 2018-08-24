@@ -6,7 +6,6 @@ factorization :: Integer -> [Integer]
 factorization 1 = []
 factorization x = v : factorization (x `div` v)
   where
-    v = (factors x) !! 1
+    v = factors x !! 1
 
-main = do
-  print $ factorization 600851475143
+main = print $ factorization 600851475143
